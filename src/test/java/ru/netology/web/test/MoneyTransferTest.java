@@ -85,10 +85,10 @@ public class MoneyTransferTest {
         val transferPage = dashboardPage.secondCard();
         int amount = 100000;
         transferPage.transferMoney(amount, DataHelper.FirstCard());
+        transferPage.errorMessage();
         val balanceFirstCardAfter = dashboardPage.getFirstCardBalance();
         val balanceSecondCardAfter = dashboardPage.getSecondCardBalance();
-        assertEquals((balanceFirstCardBefore - amount), balanceFirstCardAfter);
-        assertEquals((balanceSecondCardBefore + amount), balanceSecondCardAfter);
+        assertEquals(balanceFirstCardBefore, balanceFirstCardAfter);
+        assertEquals(balanceSecondCardBefore, balanceSecondCardAfter);
     }
-
 }
